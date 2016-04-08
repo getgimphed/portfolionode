@@ -1,0 +1,51 @@
+var express = require('express');
+var projectRouter = express.Router();
+
+//var projects earlier when wasnt fetched from db
+
+var projects = [{
+    Link: '/projects/1',
+    Project: 'MBM'
+        }, {
+    Link: '/projects/2',
+    Project: 'Encarta 2K15'
+        }, {
+    Link: '/projects/3',
+    Project: 'IAMGCON'
+        }];
+
+
+var mysql = require('mysql');
+
+var route = function(connection){
+    projectRouter.route('/')
+    .get(function (req, res) { 
+        connection.query('select * from projects',
+            function(err,rows){
+            if(err){
+            console.error("Error in query ! " + err);
+            }
+            else{
+                res.render("projectsView", {
+                    title: 'My Projects | Gimphy',
+                    portfolio: rows
+                });
+            } 
+        });
+projectRouter.route('/:id')
+    .get(function (req, res) {
+        var id = req.params.id;
+        res.render('projectView', {
+            title: "Title Single Project",
+            project: projects[id],
+            id:id
+        });
+    });
+    
+    return projectRouter;
+}
+
+module.exports = route;
+
+//Cognizance
+//07611010804

@@ -1,0 +1,23 @@
+{
+  "name": "nodeFirst",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Vedant Jain <getgimphed@gmail.com>"
+  ],
+  "license": "BSD-2-Clause",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.5.0"
+  }
+}
