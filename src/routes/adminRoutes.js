@@ -20,7 +20,8 @@ var projects = [{
             var collection = db.collection('projects');
             collection.insertMany(projects,function(err,results){
                 res.send(results);
-                db.close();             // To be here and not down
+                console.log(err);
+                db.close();             // To be done here and not down
             }); 
         });                             // not here .. as async.. and database will be closed before operations
     });
