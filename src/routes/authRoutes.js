@@ -27,7 +27,6 @@ authRouter.route('/profile')
 	})
 	.get(function(req,res){		
 		res.json(req.user);
-
 	});
 authRouter.route('/signIn')
 	.post(passport.authenticate('local',{
